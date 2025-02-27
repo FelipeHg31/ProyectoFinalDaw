@@ -1,0 +1,24 @@
+<div class="fondo">
+    <div class="container organizar">
+        <form [formGroup]="formulario" (ngSubmit)="EnviarDatos()">
+            <div class="mb-3">
+                <label for="correo" class="form-label">Correo</label>
+                <!--Para los campos de texto se realizaran condicionales que cmabiaran el contorno del campo y mostrara un texto para informar sobre el error -->
+                <input type="text" class="form-control" id="correo" formControlName="correo" [ngClass]="{'is-invalid': hasError('correo', 'required')||hasError('correo', 'email')}">
+                <div *ngIf="hasError('correo', 'required')" class="colorAviso"> Ingresar el correo  </div>
+                <div *ngIf="hasError('correo', 'email')" class="colorAviso"> Revisar el formato del correo </div>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Contraseña</label>
+                <input type="password" class="form-control" id="password" formControlName="password" [ngClass]="{'is-invalid': hasError('password', 'required')||hasError('password', 'minlength')}">
+                <div *ngIf="hasError('password', 'required')" class="colorAviso"> Ingresar la contraseña </div>
+                <div *ngIf="hasError('password', 'minlength')" class="colorAviso"> Revisar el tamaño de la contraseña </div>
+            </div>
+            
+            <div class="btnIng">
+                <a  href="registro">Nuevo usuario</a>
+                <button type="submit" class="btn btn-primary moverbtn">Submit</button>
+            </div>
+        </form>  
+    </div>
+    </div>

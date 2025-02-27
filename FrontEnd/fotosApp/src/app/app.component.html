@@ -1,0 +1,43 @@
+<nav class="navbar navbar-expand-lg contenedor">
+  <div class="container-fluid" id="txtc">
+    <a class="navbar-brand color" href="#">NuesFot</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon fondoIcon" ></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item" *ngIf="usuario">
+          <a class="nav-link color">{{usuario.nombre}}</a>
+        </li>
+        <li class="nav-item">
+          <!--Se le quita el href porque no refrescara la pagina-->
+          <a class="nav-link color" routerLink="" >Home</a>
+        </li>
+        <li class="nav-item" *ngIf="usuario.rol == 'administrador' || usuario.rol == 'usuario'">
+          <a class="nav-link color" routerLink="miBiblioteca/{{usuario.id}}">Mi biblioteca</a>
+        </li>
+        <li class="nav-item" *ngIf="usuario.rol != 'administrador' || usuario.rol != 'usuario'">
+          <a class="nav-link color" routerLink="login">Login</a>
+        </li>
+        <li class="nav-item" *ngIf="usuario.rol == 'administrador' || usuario.rol == 'usuario'">
+          <a class="nav-link color" routerLink="busqGrupos">Grupos</a>
+        </li>
+        <li class="nav-item" *ngIf="usuario.rol == 'administrador'">
+          <a class="nav-link color" routerLink="admin">Administrar</a>
+        </li>
+        <li class="nav-item" *ngIf="usuario.rol == 'administrador' || usuario.rol == 'usuario'">
+          <!--Revisar este-->
+          <a class="nav-link color" (click)="cerrarSesion()" href="">Exit</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<router-outlet />
+
+<div class="card-footer pie">
+  <p>Juan Felipe Hernandez García</p>
+  <p>Proyecto de grado DAW</p>
+  <p>Correo de incidencias: <a href="mailto:jpipeher@gmail.com">jpipeher&#64;gmail.com</a></p>
+</div>

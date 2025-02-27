@@ -1,0 +1,60 @@
+<div id="pagina">  
+    <div class="grupo">
+        <div class="tabla">
+          <div id="orgTit">
+            <h2>Grupos en los que no estas</h2>
+          </div>
+            <div class="contenedor">
+            <table class="table">
+              <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>Unirse</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let gr of grupos">
+                <td>{{gr.id}}</td>
+                <td>{{gr.nombre}}</td>
+                <td>{{gr.descripcion}}</td>
+                <td><button class="btn" (click)="ingresar(gr.id)">Unirse</button></td>
+              </tr>
+            </tbody>
+            </table>
+          </div>
+        </div>
+          <button (click)="modal(usuario.id)" class="btn btnMover" >Nuevo grupo</button>
+    </div>
+
+    <div class="grupo">
+        <div class="tabla">
+          <h2 id="tit">Grupos en los que estas</h2>
+          <div class="contenedor bajar">
+          <table class="table">
+            <thead>
+            <tr>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Descripcion</th>
+              <th>Entrar</th>
+              <th>Salir</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let gr of gruposUs">
+              <td>{{gr.id}}</td>
+              <td>{{gr.nombre}}</td>
+              <td>{{gr.descripcion}}</td>
+              <td><button class="btn" (click)="moverse(gr.id)">Entrar</button></td>
+              <td><button class="btn" (click)="salirse(gr.id)">Salirse</button></td>
+            </tr>
+          </tbody>
+          </table>
+        </div>
+        </div>
+  </div>
+
+
+</div>

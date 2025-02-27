@@ -1,0 +1,75 @@
+*{
+    font-family: serif;
+}
+
+form{
+    width: 80%;
+    margin-left: 10%;
+    color: white;
+    font-size: 25px;
+}
+
+.fondo{
+    height: 840px;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../../assets/fots.jpg'); 
+    background-position: center;
+    background-attachment:fixed;
+    padding: 110px;
+    
+}
+
+.btnIng{
+    text-align: center;
+}
+
+button{
+    margin: 20px;
+    background-image: url("../../../assets/inicio.jpg");
+    width: 150px;
+    text-align: center;
+}
+
+a{
+    margin: 20px;
+    text-decoration: none;
+    color: white;
+}
+
+@media(max-width:750px){
+
+    form { 
+        width: 90%;
+        padding: 20px;
+        margin-left: 8%;
+      
+    }
+
+    .fondo{
+        padding: 40px;
+    }
+
+    button{
+        margin-top: 20px;
+        margin-left: 0px;
+    }
+}
+
+@media(max-width:500px){
+
+    form { 
+        width: 90%;
+        padding: 0px;
+        margin-left: 5%;
+      
+    }
+
+    .fondo{
+        padding: 0px;
+        padding-top: 20px;
+    }
+
+    button{
+        margin-top: 20px;
+        margin-left: 0px;
+    }
+}

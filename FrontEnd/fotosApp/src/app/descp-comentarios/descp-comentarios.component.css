@@ -1,0 +1,32 @@
+*{
+    font-family: serif;
+}
+
+#fondo{
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../assets/inicio.jpg'); 
+    padding: 20px;
+    color: white;
+}
+
+label{
+    font-size: 25px;
+}
+
+table, tr, td, th{
+    border-color: grey;
+    border-width: 2px;
+    border-style: groove;
+    background-color:  rgba(0.299, 0.587, 0.114, 0.3);
+    color: white;
+    text-align: center;
+}
+
+th{
+    font-size: 18px;
+}
+
+@media(max-width:400px){
+    #area{
+        width: 80%;
+    }
+}

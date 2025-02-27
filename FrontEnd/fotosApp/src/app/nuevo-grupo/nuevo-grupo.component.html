@@ -1,0 +1,23 @@
+<div class="fondo">
+    <div class="container fondPeq">
+        <form [formGroup]="formulario" (ngSubmit)="EnviarDatos()" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="nomGrup" class="form-label">Nombre del grupo</label>
+                <input type="text" class="form-control" id="nomGrup" formControlName="nombre" [ngClass]="{'is-invalid': hasError('nombre', 'required')}">
+                <div *ngIf="hasError('titulo', 'required')" class="text-danger"> Ingresar el titulo del documento  </div>
+            </div>
+            
+            <div class="mb-3">
+                <label for="descripcion" class="form-label">Descripción</label>
+                <textarea type="descripcion" class="form-control" id="descripcion" formControlName="descripcion" [ngClass]="{'is-invalid': hasError('descripcion', 'required')||hasError('descripcion', 'minlength')}"></textarea>
+                <div *ngIf="hasError('descripcion', 'required')" class="text-danger"> Ingresar el comprobante de la contraseña  </div>
+                <div *ngIf="hasError('descripcion', 'minLenght')" class="text-danger"> La contraseña debe ser mayor a 4 letras </div>
+            </div>
+            
+            <div class="btnIng">
+                <button type="button" class="btn fondobtn">Limpiar</button>
+                <button type="submit" class="btn fondobtn">Crear grupo</button>
+            </div>
+        </form>  
+    </div>
+    </div>

@@ -1,0 +1,52 @@
+<div class="fondo">
+    <div class="container fondPeq">
+        <form [formGroup]="formulario" (ngSubmit)="EnviarDatos()" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="titulo" class="form-label">Titulo</label>
+                <input type="text" class="form-control" id="titulo" formControlName="titulo" [ngClass]="{'is-invalid': hasError('titulo', 'required')}">
+                <div *ngIf="hasError('titulo', 'required')" class="text-danger"> Ingresar el titulo de la imagen  </div>
+            </div>
+            <div class="mb-3">
+                <label for="categoria" class="form-label">Categoría</label>
+                <select class="form-select" id="categoria" formControlName="categoria" [ngClass]="{'is-invalid': hasError('categoria', 'required')}">
+                    <option *ngFor="let cat of Categorias" [value]="cat">{{cat}}</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="autor" class="form-label">Autor</label>
+                <div class="autores">
+                    <select id="autor" class="form-select" formControlName="autor" [ngClass]="{'is-invalid': hasError('autor', 'required')}">
+                        <option value="" selected>Selecciona un autor o crea uno nuevo sino exite</option>
+                        <option *ngFor="let autor of autores" [value]="autor">{{ autor }}</option>
+                    </select>
+                    <button type="button" class="btn fondobtnA" (click)="nuevoAut()">Nuevo autor</button>
+                </div>
+                <div *ngIf="hasError('autor', 'required')" class="text-danger"> Ingresar el autor</div>
+            </div>
+    
+            <div *ngIf="nuevoAutor" class="mb-3">
+                <label for="Nuevautor" class="form-label">Nombre nuevo autor (Si es propio ingresar "yo")</label>
+                <div class="autores">
+                    <input type="autor" class="form-control txtautor" id="Nuevautor" formControlName="autorNuev" >
+                    <button type="button" class="btn fondobtnA" (click)="IngnuevoAut()">Nuevo autor</button>
+                </div>
+            </div>
+            <div class="mb-3"> 
+                <label for="portada" class="form-label">Imagen</label>
+                <input class="form-control" type="file" id="portada" formControlName="imagen" (change)="GuardarArchivoSubido($event)" [ngClass]="{'is-invalid': hasError('imagen', 'required')}" >
+                <div *ngIf="hasError('imagen', 'required')" class="text-danger"> Ingresar el autor</div>
+            </div>
+            <div class="mb-3">
+                <label for="descripcion" class="form-label">Descripción</label>
+                <textarea type="descripcion" class="form-control" id="descripcion" formControlName="descripcion" [ngClass]="{'is-invalid': hasError('descripcion', 'required')||hasError('descripcion', 'minlength')}"></textarea>
+                <div *ngIf="hasError('descripcion', 'required')" class="text-danger"> Ingresar una descripción </div>
+                <div *ngIf="hasError('descripcion', 'minlength')" class="text-danger"> La descripción es de minimo 15 caracteres </div>
+            </div>
+            
+            <div class="btnIng">
+                <button type="submit" class="btn fondobtn">Subir archivo</button>
+                <button type="button"  (click)="limpiar()" class="btn fondobtn">Limpiar</button>
+            </div>
+        </form>  
+    </div>
+    </div>

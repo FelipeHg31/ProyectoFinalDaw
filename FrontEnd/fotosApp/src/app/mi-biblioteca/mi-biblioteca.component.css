@@ -1,0 +1,150 @@
+*{
+  font-family: serif;
+}
+
+#pagina{
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../assets/misLibros.jpg'); 
+    background-position: center;
+  }
+
+  img{
+    width: 180px;
+    height: 180px;
+  }
+  .carruselLado1{
+    display: flex;
+    flex-direction: row;
+    overflow-x: scroll; 
+    gap: 20px; 
+    max-height: 50%;
+    width: 1500px;
+    margin-left: 2.5%;
+    margin-top: 0;
+  }
+  .carruselLado {
+      display: flex;
+      flex-direction: row;
+      overflow-x: scroll; 
+      gap: 20px;
+      max-height: 50%;
+      margin-left: 2.5%;
+      width: 1200px;
+    }
+  
+    .carruselLado img {
+      width: 180px; 
+      flex-shrink: 0; 
+    }
+
+    .simbolo{
+      width: 50px;
+      height: 50px;
+      border: 5px solid #fff;
+      border-top: 5px solid transparent;
+      border-radius: 50%;
+      animation: rotar 0.5s linear infinite;
+      margin-bottom: 10px;
+    }
+  
+    @keyframes rotar {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  
+    #carga{
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 1.2rem;
+    } 
+
+    .verFotos{
+      width: 100px;
+      height: 100px;
+    }
+  
+    .verFot{
+      display: flex;
+      flex-direction: row;
+      margin: 50px;
+    }
+  
+    .btnLib{
+      margin-left: 50px;
+      height: 75px;
+      width: 150px;
+      margin-top: 20px;
+    }
+  
+    h2{
+      padding-top: 20px;
+      margin-left: 5.5%;
+      color: aliceblue;
+    }
+  
+    a{
+      text-decoration: none;
+      color: white;
+    }
+  
+    @media(max-width:850px){
+
+      .verFotos{
+        width: 80px;
+        height: 80px;
+      }
+
+      .cambio{
+        display: flex;
+        flex-direction: column;
+      }
+
+      .carruselLado {       
+        margin-left: 1.5%;
+        width: 90%;
+      }
+  
+      #pagina{
+        height: 1300px;
+    }
+  }
+
+
+  @media(max-width:750px){
+
+      .verFotos{
+        width: 60px;
+        height: 60px;
+      }
+
+      .btnLib{
+        margin-top: 10px;
+      }
+
+      #pagina{
+        height: 1400px;
+    }
+  
+  }
+
+  @media(min-height:900px){
+    
+    #pagina{
+        height: 950px;
+    }
+}
+
+@media(max-height:850px){
+    
+    #pagina{
+        height: 950px;
+    }
+} 

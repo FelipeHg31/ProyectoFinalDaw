@@ -1,0 +1,61 @@
+*{
+    font-family: serif;
+}
+.fondo{
+   background-image: url("../../assets/admin.jpg");
+    background-position: center;
+    background-attachment:fixed;
+}
+
+.fondPeq{
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../../assets/nuevo.jpg'); 
+    background-position: center;
+    color: white;
+    font-size: 20px;
+    width: 350px;
+    position: center;
+}
+
+.btnIng{
+    margin-left:25%;
+}
+
+.fondobtn{
+    margin: 15px;
+    background-image: url("../../assets/inicio.jpg");
+    width: 150px;
+    color: white;
+    text-align: center;
+}
+
+.fondobtnA{
+    background-image: url("../../assets/inicio.jpg");
+    width: 150px;
+    color: white;
+    text-align: center;
+}
+
+@media(max-width:400px){
+    .fondo{
+         padding: 0px;
+     }
+
+     .fondPeq{
+        width: 300px;
+
+    }  
+    .btnIng{
+        margin-left:15%;
+    }
+
+    .fondobtn{
+        width: 100px;
+        margin-left: 10px;
+    }
+    
+    .fondobtnA{     
+        width: 100px;
+    }
+}
+
+

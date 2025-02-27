@@ -1,0 +1,34 @@
+html{
+    background-color: #22384e;
+}
+nav{
+    background-color: #22384e;
+}
+
+*{
+    font-family: serif;
+}
+
+.contenedor{
+    background-image: url("../assets/inicio.jpg");
+} 
+
+.fondoIcon{
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.color{
+    color: #ffffff;
+}
+
+.pie{
+    background-image: url(../assets/inicio.jpg) ;
+}
+
+.pie p{
+    margin: 0;
+    padding: 0;
+    color: white;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+

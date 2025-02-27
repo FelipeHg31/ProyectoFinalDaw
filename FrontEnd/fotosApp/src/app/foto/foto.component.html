@@ -1,0 +1,49 @@
+<div class="fondo"> 
+    <div id="posicion" class="container">
+        <div *ngIf="tipo == 'local'" id="obser">
+            <h1 id="titulo">{{titulo}}</h1>
+            <img *ngIf="img" [style.width.px]="tamW" [style.height.px]="tamH" [src]="'data:image/jpeg;base64,' + img" alt="Portada" />
+        </div>
+        <div *ngIf="tipo == 'externa'" id="obser">
+            <h1 *ngIf="imagenExterna" id="titulo">{{imagenExterna.id}}</h1>
+            <img *ngIf="imagenExterna" [style.width.px]="tamW" [style.height.px]="tamH" [src]="imagenExterna.src.original" alt="Portada" />
+        </div>
+    
+        <div id="opciones">
+            <form [formGroup]="formulario">
+                
+                <div class="mb-3" *ngIf="idUs != 0">
+                    <div class="org">
+                        <button type="submit" class="btn btna" (click)="agregar()">Agregar a un grupo</button> 
+                    </div>
+                </div>
+                <div class="mb-3 cambio">
+                    <label for="ancho" class="form-label">Tamaño de la foto</label>
+                    <br>
+                    <label for="alto" class="form-label">Ancho / Alto</label>
+                    <div class="org cambio">
+                        <input type="text" class="form-control cam" formControlName="ancho" id="ancho">
+                        <input type="text" class="form-control cam" formControlName="alto" id="alto">
+                        <button type="button" class="btn cam" (click)="cambiarTam()">Cambiar</button>
+                    </div>
+                </div>
+                <div class="mb-3" *ngIf="idUs != 0">
+                    <label for="puntua" class="form-label">Puntuación</label>
+                    <div class="org">
+                        <input type="range" class="form-range" min="0" max="5" step="1" id="puntua" formControlName="puntua" (change)="cambio()">
+                        <label>{{resenaNueva.puntuacion}}</label>
+                    </div>
+                </div>
+                <div class="mb-3 cambio" *ngIf="idUs != 0">
+                    <label for="comentario" class="form-label">Comentario</label>
+                    <div class="org cambio">
+                        <textarea type="text" class="form-control cam" id="comentario" cols="50" rows="4" formControlName="comentario"></textarea>
+                        <button type="button" class="btn cam" (click)="agreEditResena()">Enviar</button>
+                    </div>
+                    <button type="button" class="btn comentBtn" (click)="abrirComent()">Descripción y comentarios</button>
+                    <button type="button" class="btn comentBtn" (click)="descargarImg()">Descargar Imagen</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>

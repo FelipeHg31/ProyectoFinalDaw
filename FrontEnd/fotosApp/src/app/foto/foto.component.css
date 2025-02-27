@@ -1,0 +1,123 @@
+*{
+    font-family: serif;
+}
+#posicion{
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+} 
+
+.fondo{
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../assets/admin.jpg'); 
+    height: 840px;
+    padding: 20px;
+}
+
+#obser{
+    width: 70%;
+    margin: 10px;
+    text-align: center;
+}
+
+#obser h1{
+    color: white;
+    margin: 15px;
+}
+
+
+#opciones{
+    margin: 100px;
+}
+
+#opciones label{
+    color: white;
+    font-size: 25px;
+}
+
+.org{
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+}
+
+ button{
+    height: 45px;
+    margin-left: 20px;
+    background-image: url("../../assets/inicio.jpg");
+    width: 150px;
+    text-align: center;
+    color: white;
+}
+
+.org input{
+    height: 45px;
+    margin-right: 10px;
+}
+
+.btna{
+    margin-left: 0px;
+    width: 250px;
+    margin-bottom: 20px;
+}
+
+.comentBtn{
+    margin-top:30px;
+    margin-left: 0px;
+    width: 250px;
+    height: 70px;
+}
+
+@media (max-width:1100px) {
+    #posicion{
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    } 
+    
+    .fondo{
+        height: 1555px;
+    }
+
+    #opciones{
+        margin: 70px;
+    }
+   
+}
+
+@media (max-width:700px) {
+    #obser{
+        width: 40%;
+        margin: 0px;
+        text-align: center;
+    }
+
+    img{
+        width: 400px;
+        height: 400px;
+    }
+
+    .cambio{
+        display: flex;
+        flex-direction: column;
+        width: 250px;
+    }
+
+    .cam{
+        margin: 5px;
+    }
+
+    .fondo{
+        height: 1500px;
+    }
+
+    #opciones{
+        margin: 40px;
+    }
+}
+
+@media (max-width:500px) {
+    
+    #opciones{
+        margin: 10px;
+    }
+}

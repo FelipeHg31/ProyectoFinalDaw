@@ -1,0 +1,43 @@
+*{
+    font-family: serif;
+}
+
+#fondo{
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../assets/inicio.jpg'); 
+    height: 2600px;
+    padding: 20px;
+}
+
+.diseño{
+    background-color: rgba(0.299,0.587,0.114,0.3);
+    color: white;
+    margin: 30px;
+}
+
+table, tr, td, th{
+    border-color: grey;
+    border-width: 2px;
+    border-style: groove;
+    background-color:  rgba(0.299, 0.587, 0.114, 0.3);
+    color: white;
+    text-align: center;
+}
+
+th{
+    font-size: 18px;
+}
+
+.contenedor {
+    overflow-y: scroll;
+    height: 200px; 
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.3)), url('../../assets/inicio.jpg'); 
+  }
+
+  button{
+    margin: 20px;
+    background-image: url("../../assets/inicio.jpg");
+    width: 70px;
+    color: white;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.2);
+}

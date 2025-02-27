@@ -1,0 +1,61 @@
+.fondo{
+    height: 840px;
+    background-image: url("../../assets/Guardar.jpg");
+    background-position: center;
+    background-attachment:fixed;
+    padding: 70px;
+}
+
+.fondPeq{
+    width: 80%;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../assets/subirLibro.jpg'); 
+    background-position: center;
+    color: white;
+    font-size: 20px;
+    padding: 20px;
+}
+
+.btnIng{
+    margin-left:20%;
+}
+
+.fondobtn{
+    margin: 8%;
+    background-image: url("../../assets/inicio.jpg");
+    width: 150px;
+    color: white;
+    text-align: center;
+}
+
+.fondobtnA{
+    background-image: url("../../assets/inicio.jpg");
+    width: 150px;
+    color: white;
+    text-align: center;
+}
+
+#autor{
+    width: 60%;
+}
+
+.autores{
+    display: flex;
+    flex-direction: row;
+}
+
+.autores button{
+    margin-left: 50px;
+}
+
+@media(max-width:750px){
+
+    .fondPeq{
+        width: 90%;
+        padding: 10px;
+    }   
+
+    .fondo{
+        padding: 20px;
+    }
+   
+}

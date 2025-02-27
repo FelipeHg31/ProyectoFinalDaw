@@ -1,0 +1,45 @@
+<div id="pagina"> 
+    <div id="carga" *ngIf="!muestra1&&!muestra2">
+      <div class="simbolo"></div>
+      <p>Cargando...</p>
+    </div>
+    <h2>Fotos que te gustan</h2> 
+    <div class="verFot" *ngIf="muestra1&&muestra2">
+    <div class="carruselLado1">
+        <a class="FotSep" [routerLink]="'/foto/' + fot.id + '/' + idUs + '/local'" *ngFor="let fot of fotos">
+            <div class="fotot" >
+              <img class="verfotos" *ngIf="fot.imagen" (mouseenter)="grande(fot.id)" (mouseleave)="pequeno(fot.id)" [style.width.px]="tamimg[fot.id] || 200" [style.transition]="'0.3s ease-in-out'" [src]="'data:image/jpeg;base64,' + fot.imagen" alt="Imagenlocal" />
+              <div class="fondtxt">
+                <h3 class="colortxt">{{fot.titulo}}</h3>
+              </div>
+            </div>
+          </a>
+          <a class="FotSep" [routerLink]="'/foto/' + fot.idImg + '/' + idUs + '/externa'" *ngFor="let fot of fotosExternas">
+            <div class="fotot" >
+              <img class="verfotos" (mouseenter)="grande(fot.id)" (mouseleave)="pequeno(fot.id)" [style.width.px]="tamimg[fot.id] || 200" [style.transition]="'0.3s ease-in-out'" [src]="fot.urlApi" alt="img" />
+              <div class="fondtxt">
+                <h3 class="colortxt">{{fot.idImg}}</h3>
+              </div>
+            </div>
+          </a>
+          
+    </div>
+    </div>
+    <h2>Fotos Subidas</h2>
+    <div class="verFot cambio" *ngIf="muestra1&&muestra2">
+      <div class="carruselLado">
+        <a class="FotSep" [routerLink]="'/foto/' + fot.id + '/' + idUs + '/local'" *ngFor="let fot of fotosSub">
+            <div class="fotot" >
+              <img class="verfotos" *ngIf="fot.imagen" (mouseenter)="grande(fot.id)" (mouseleave)="pequeno(fot.id)" [style.width.px]="tamimg[fot.id] || 200" [style.transition]="'0.3s ease-in-out'" [src]="'data:image/jpeg;base64,' + fot.imagen" alt="ImgSubida" />
+              <div class="fondtxt">
+                <h3 class="colortxt">{{fot.titulo}}</h3>
+              </div>
+            </div>
+          </a>
+      </div>
+      <button type="button" (click)="agregar()" class="btn btn-dark btnLib">Agregar</button>
+      <button type="button" (click)="descargarLocales()" class="btn btn-dark btnLib">Descargar Interacciones</button>
+      <button type="button" (click)="descargarSubidas()" class="btn btn-dark btnLib">Descargar Subidas</button>
+    </div>
+    </div>
+    

@@ -1,0 +1,91 @@
+<div id="pagina">    
+    <div id="grupo">
+      <h1></h1>
+      <div id="carga" *ngIf="!muestra1&&!muestra2">
+        <div class="simbolo"></div>
+        <p>Cargando...</p>
+      </div>
+        <div id="imagenes" *ngIf="muestra1&&muestra2">
+          <div *ngFor="let fot of fotos">
+            <a class="FotSep"  [routerLink]="usua?.id ? ['/foto', fot?.id, usua?.id, 'local'] : ['/foto', fot?.id, 'local']">
+            <div class="fotot" >
+                <img *ngIf="fot.imagen" [src]="'data:image/jpeg;base64,' + fot.imagen" (mouseenter)="grande(fot.id)" (mouseleave)="pequeno(fot.id)" [style.width.px]="tamimg[fot.id] || 200" [style.transition]="'0.3s ease-in-out'" alt="Portada" />
+                    <div class="fondtxt">
+                      <h3 class="colortxt">{{fot.titulo}}</h3>
+                    </div>
+                  </div>
+                </a>
+                <button *ngIf="esJefe" class="btn btnimg" (click)="borrarImg(fot.id); $event.stopPropagation();">Borrar</button>
+            </div>
+            <div *ngFor="let fot of fotosExternas">
+                <a class="FotSep"  [routerLink]="usua?.id ? ['/foto', fot?.id, usua?.id, 'externa'] : ['/foto', fot?.id, 'externa']" >
+                  <div class="fotot" >
+                    <img *ngIf="fot" [src]="fot.urlApi" (mouseenter)="grande(fot.idImg)" (mouseleave)="pequeno(fot.idImg)" [style.width.px]="tamimg[fot.idImg] || 200" [style.transition]="'0.3s ease-in-out'" alt="Portada" />
+                    <div class="fondtxt">
+                      <h3 class="colortxt">{{fot.idImg}}</h3>                     
+                    </div>
+                  </div>
+                </a>
+                <button *ngIf="esJefe" class="btn btnimg" (click)="borrarImg(fot.idImg); $event.stopPropagation();">Borrar</button>
+            </div>
+        </div>
+
+        <div id="espacio" *ngIf="!esJefe"></div>
+
+        <div id="comentarios"> 
+            <div class="tabla comtG">
+                <h2>Comentarios</h2>
+                <div class="contenedor">
+                <table class="table">
+                  <thead>
+                  <tr>
+                    <th>Usuario</th>
+                    <th>Comentario</th>
+                    <th *ngIf="esJefe">Borrar</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr *ngFor="let com of comentarios">
+                    <td>{{com.id_us}}</td>
+                    <td>{{com.comentario}}</td>
+                    <td *ngIf="esJefe"><button class="contraste" (click)="borrar('comentario',com.id)">Borrar</button></td>
+                  </tr>
+                </tbody>
+                </table>
+              </div>
+              </div>
+              <div >
+                <form [formGroup]="formulario" id="comentar">
+                  <label for="coment"> Escribir un comentario</label>
+                  <textarea id="coment" formControlName="comentario" cols="57" rows="7"></textarea>
+                  <button class="btn btnCom">limpiar</button>
+                  <button class="btn btnCom" (click)="comentar()" >Comentar</button>
+                </form>
+              </div>
+        </div>
+        <div id="config">
+                <div *ngIf="esJefe" class="tabla tbgrupo">
+                    <h2>Usuarios del grupo</h2>
+                    <div class="contenedor">
+                    <table class="table">
+                      <thead>
+                      <tr>
+                        <th>id</th>
+                        <th>Nombre</th>
+                        <th>Borrar</th>
+                      </tr>
+                      </thead>
+                      <tbody>
+                      <tr *ngFor="let us of intGrupos; let i = index">
+                        <td>{{us.id}}</td>
+                        <td>{{us.nombre}}</td>
+                        <td *ngIf="esJefe"><button class="btn btnUS" (click)="borrar('usuario',i, us.id)">Borrar</button></td>
+                      </tr>
+                    </tbody>
+                    </table>
+                  </div>
+                  
+            </div>
+        </div>
+    </div>
+</div>

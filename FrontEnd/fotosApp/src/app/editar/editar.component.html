@@ -1,0 +1,111 @@
+<div class="fondo">
+    <h2>Editar Datos</h2> 
+    <h1>{{tipoDato}}</h1>
+    <form class="form" [formGroup]="formulario" enctype="multipart/form-data">
+
+    <!--Cada campo del formulario se mostrar segun el dato-->
+    <div class="container" *ngIf="tipoDato == 'usuarios' || tipoDato == 'autores' || tipoDato == 'grupos'">
+      <label for="nom" class="form-label">Nombre:</label>
+      <input id="nom" class="form-control" formControlName="nombre" type="text" [value]="nomVal" />
+    </div>
+
+    <div class="container" *ngIf="tipoDato == 'usuarios'">
+      <label for="correo" class="form-label">Correo:</label>
+      <input id="correo" class="form-control" formControlName="correo" type="email" />
+      </div>
+      <div class="container" *ngIf="tipoDato == 'usuarios'">
+      <label for="rol" class="form-label">Rol:</label>
+      <select class="form-select" id="rol" formControlName="rol">
+        <option value="usuario">usuario</option>
+        <option value="administrador">administrador</option>
+      </select>
+    </div>
+
+    <div class="container" *ngIf="tipoDato == 'usuarios'">
+      <label for="pasw" class="form-label">Contraseña:</label>
+      <input id="pasw" class="form-control" formControlName="password" type="text" />
+    </div>
+
+    <div class="container" *ngIf="tipoDato == 'fotos'">
+      <label for="tit" class="form-label"> Titulo:</label>
+      <input id="tit" class="form-control" formControlName="titulo" type="text" />
+    </div>
+
+    <div class="container" *ngIf="tipoDato == 'fotos'">
+      <label for="cat" class="form-label">Categoria:</label>
+      <select id="cat" class="form-select" formControlName="categoria">
+        <option *ngFor="let cat of Categorias" [ngValue]="cat">{{cat}}</option>
+      </select>
+    </div>
+
+    <div class="container" *ngIf="tipoDato == 'fotos' || tipoDato == 'grupos'">
+      <label for="desc" class="form-label">Descripcion:</label>
+      <input id="desc" class="form-control" formControlName="descripcion" type="text" />
+    </div>
+
+    <div class="container" *ngIf="tipoDato == 'resenas' || tipoDato == 'comentGrupos'">
+      <label for="coment" class="form-label">Comentario:</label>
+      <input id="coment" class="form-control" formControlName="comentario" type="text" />
+    </div>
+
+    <div class="container" *ngIf="tipoDato == 'resenas'">
+      <label for="punt" class="form-label">Puntuación:</label>
+      <input id="punt" class="form-control" formControlName="puntuacion" type="text" />
+    </div>
+
+    <div class="container" *ngIf="tipoDato == 'resenas'">
+      <label for="idImgLoc" class="form-label">Id Imagenes Locales:</label>
+      <select id="idImgLoc" class="form-select" formControlName="id_foto">
+        <option *ngFor="let fot of Fotos" [ngValue]="fot.id">{{fot.id}}. {{fot.titulo}}</option>
+      </select>
+    </div>
+
+    <div class="container" *ngIf="tipoDato == 'resenas' || tipoDato == 'imgExt'">
+      <label for="idImgExt" class="form-label">Id Imagenes Extermas:</label>
+      <select id="idImgExt" class="form-select" formControlName="id_imgExt">
+        <option *ngFor="let fot of ImgExternas" [ngValue]="fot.idImg">{{fot.id}}. {{fot.idImg}}</option>
+      </select>
+    </div>
+
+    <div class="container" *ngIf="tipoDato == 'fotos'">
+      <label for="autores" class="form-label">Autores:</label>
+      <select id="autores" class="form-select" formControlName="id_autor">
+        <option *ngFor="let aut of Autores" [ngValue]="aut.id">{{aut.nombre}}</option>
+      </select>
+    </div>
+
+    <div class="container" *ngIf="tipoDato == 'resenas' || tipoDato == 'fotos' || tipoDato == 'grupos' || tipoDato == 'comentGrupos'">
+      <label for="id_usua" class="form-label">Usuario que interactua:</label>
+      <select id="id_usua" class="form-select" formControlName="id_sube">
+        <option *ngFor="let us of Usuarios" [ngValue]="us.id">{{us.nombre}}</option>
+      </select>
+    </div>
+    
+    <div class="container" *ngIf="tipoDato == 'fotos'"> 
+      <label for="portada" class="form-label">Imagen</label>
+      <input class="form-control" type="file" id="portada" formControlName="imagen" (change)="GuardarArchivoSubido($event)" >
+    </div>
+   
+    <div class="container" *ngIf="tipoDato == 'imgExt'">
+      <label for="urlApi" class="form-label">Url Api:</label>
+      <input id="urlApi" class="form-control" formControlName="UrlApi" type="text" />
+    </div>
+    <div class="container" *ngIf="tipoDato == 'comentGrupos'">
+      <label for="idG" class="form-label">Grupos:</label>
+      <select id="idG" class="form-select" formControlName="id_grupo">
+        <option *ngFor="let gr of Grupos" [ngValue]="gr.id">{{gr.nombre}}</option>
+      </select>
+    </div>
+    <div class="container" *ngIf="tipoDato == 'imgGrupos'">
+      <label id="tipImg" class="form-label">Tipo Imagen:</label>
+      <select class="form-select" id="tipImg" formControlName="tipoImagen">
+        <option value="local">local</option>
+        <option value="externa">externa</option>
+      </select>
+    </div>
+    <div class="btnIng"> 
+      <button class class="btn btn-primary" (click)="guardarCambios(tipoDato)">Guardar Cambios</button>
+      <button class="btn btn-primary" (click)="cerrar()">Cerrar</button>
+    </div>
+    </form>
+    </div>

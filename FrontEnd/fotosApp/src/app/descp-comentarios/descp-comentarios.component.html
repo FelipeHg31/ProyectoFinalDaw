@@ -1,0 +1,29 @@
+<div id="fondo">
+    <div id="descripcion">
+        <form [formGroup]="formulario">
+            <label for="area">Descripción </label>
+            <textarea readonly="true" formControlName="descp" name="" id="area" cols="57" rows="5"></textarea>
+        </form>
+    </div>
+
+    <div id="comentarios"> 
+        <div class="tabla">
+            <h2>Comentarios</h2>
+            <div class="contenedor">
+            <table class="table">
+              <thead>
+              <tr>
+                <th>Usuario</th>
+                <th>Comentario</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr *ngFor="let com of comentarios">
+                <td>{{com.id}}</td>
+                <td>{{com.comentario}}</td>
+              </tr>
+            </tbody>
+            </table>
+          </div>
+          </div>
+</div>

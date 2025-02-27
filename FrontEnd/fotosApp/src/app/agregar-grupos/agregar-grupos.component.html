@@ -1,0 +1,18 @@
+<div class="fondo">
+    <div class="container fondPeq">
+        <form [formGroup]="formulario">
+            
+            <div class="container">
+                <label for="grupos" class="form-label">Grupos:</label>
+                <select id="grupos" class="form-select" formControlName="selGroup">
+                  <option *ngFor="let gr of grupos" [ngValue]="gr.id">{{gr.id}}. {{gr.nombre}}</option>
+                </select>
+              </div>
+            
+            <div class="btnIng">
+                <button type="button" class="btn fondobtn" (click)="cerrar()">Cerrar</button>
+                <button type="button" class="btn fondobtn" (click)="agregar()">Agregar al grupo</button>
+            </div>
+        </form>  
+    </div>
+    </div>

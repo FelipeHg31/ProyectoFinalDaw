@@ -1,0 +1,20 @@
+*{
+    font-family: serif;
+}
+
+.fondo{
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../assets/inicio.jpg'); 
+    padding: 20px;
+    color: white;
+}
+
+.btnIng{
+    text-align: center;
+}
+
+button{
+    margin: 20px;
+    background-image: url("../../assets/inicio.jpg");
+    width: 150px;
+    text-align: center;
+}

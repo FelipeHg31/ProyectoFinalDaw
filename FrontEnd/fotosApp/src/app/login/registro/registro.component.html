@@ -1,0 +1,36 @@
+<div class="fondo"> 
+    <div class="container">
+        <form [formGroup]="formulario" (ngSubmit)="EnviarDatos()">
+            <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre de Usuario</label>
+                <input type="text" class="form-control" id="nombre" formControlName="nombre" [ngClass]="{'is-invalid': hasError('nombre', 'required')||hasError('nombre', 'minLenght')}">
+                <div *ngIf="hasError('nombre', 'required')" class="text-danger"> Ingresar el nombre del usuario  </div>
+                <div *ngIf="hasError('nombre', 'minLenght')" class="text-danger"> El nombre debe ser mayor a 4 letras </div>
+            </div>
+            <div class="mb-3">
+                <label for="correo" class="form-label">Correo</label>
+                <input type="text" class="form-control" id="correo" formControlName="correo" [ngClass]="{'is-invalid': hasError('correo', 'required')||hasError('correo', 'email')}">
+                <div *ngIf="hasError('correo', 'required')" class="text-danger"> Ingresar el correo  </div>
+                <div *ngIf="hasError('correo', 'email')" class="text-danger"> Revisar el formato del correo </div>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Contraseña</label>
+                <input type="password" class="form-control" id="password" formControlName="password" [ngClass]="{'is-invalid': hasError('password', 'required')||hasError('password', 'minlength')}">
+                <div *ngIf="hasError('password', 'required')" class="text-danger"> Ingresar la contraseña </div>
+                <div *ngIf="hasError('password', 'minlength')" class="text-danger"> La contarseña debe ser mayor a 4 letras </div>
+            </div>
+            <div class="mb-3">
+                <label for="password2" class="form-label">Repetir Contraseña</label>
+                <input type="password" class="form-control" id="password2" formControlName="password2" [ngClass]="{'is-invalid': hasError('password2', 'required')||hasError('password2', 'minlength')}">
+                <div *ngIf="hasError('password2', 'required')" class="text-danger"> Ingresar el comprobante de la contraseña  </div>
+                <div *ngIf="hasError('password2', 'minlength')" class="text-danger"> La contraseña debe ser mayor a 4 letras </div>
+            </div>
+            
+            <div class="btnIng">
+                <a href="login">Login</a>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>  
+    </div>
+    </div>
+    

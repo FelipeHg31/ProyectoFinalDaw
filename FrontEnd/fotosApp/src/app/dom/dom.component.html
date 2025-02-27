@@ -1,0 +1,240 @@
+<div id="fondo">
+    <div class="diseño">
+      <h2>Usuarios</h2>
+      <div class="contenedor">
+      <table class="table">
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Correo</th>
+          <th>Rol</th>
+          <th>Editar</th>
+          <th>Borrar</th>
+        </tr> 
+        </thead>
+        <tbody>
+        <tr *ngFor="let us of usuarios">
+          <td>{{us.id}}</td>
+          <td>{{us.nombre}}</td>
+          <td>{{us.password}}</td>
+          <td>{{us.rol}}</td>
+          <td><button (click)="editar('usuarios', us.id)">Editar</button></td>
+          <td><button (click)="borrar('usuarios', us.id)">Borrar</button></td>
+        </tr>
+      </tbody>
+      </table>
+    </div>
+    </div>
+    <div class="diseño">
+      <h2>Imagenes</h2>
+      <div class="contenedor">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Titulo</th>
+            <th>ID Autor</th>
+            <th>Categoria</th>
+            <th>Descripción</th>
+            <th>ID Usuario</th>
+            <th>Imagen</th>
+            <th>Editar</th>
+            <th>Borrar</th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let fot of fotos">
+          <td>{{fot.id}}</td>
+          <td>{{fot.titulo}}</td>
+          <td>{{fot.id_autor}}</td>
+          <td>{{fot.categoria}}</td>
+          <td>{{fot.descripcion}}</td>
+          <td>{{fot.idUsSube}}</td>
+          <td><img [src]="'data:image/jpeg;base64,' + fot.imagen" alt="Portada" width="50" height="70"></td>
+          <td><button (click)="editar('fotos', fot.id)">Editar</button></td>
+          <td><button (click)="borrar('fotos', fot.id)">Borrar</button></td>
+        </tr>
+      </tbody>
+      </table>
+    </div>
+    </div>
+    <div class="diseño">
+      <h2>Reseñas</h2>
+      <div class="contenedor">
+      <table class="table">
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>ID autor</th>
+          <th>Comentario</th>
+          <th>Puntuacion</th>
+          <th>ID Imagen</th>
+          <th>Editar</th>
+          <th>Borrar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let res of resena">
+          <td>{{res.id}}</td>
+          <td>{{res.id_autor}}</td>
+          <td>{{res.comentario}}</td>
+          <td>{{res.puntuacion}}</td>
+          <td>{{res.id_img}}</td>
+          <td><button (click)="editar('resenas', res.id)">Editar</button></td>
+          <td><button (click)="borrar('resenas', res.id)">Borrar</button></td>
+        </tr>
+      </tbody>
+      </table>
+    </div>
+    </div>
+    <div class="diseño">
+      <h2>Autores</h2>
+      <div class="contenedor">
+      <table class="table">
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Editar</th>
+          <th>Borrar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let aut of autores">
+          <td>{{aut.id}}</td>
+          <td>{{aut.nombre}}</td>
+          <td><button (click)="editar('autores', aut.id)">Editar</button></td>
+          <td><button (click)="borrar('autores', aut.id)">Borrar</button></td>
+        </tr>
+      </tbody>
+      </table>
+    </div>
+    </div>
+    <div class="diseño">
+      <h2>Imagenes externas</h2>
+      <div class="contenedor">
+      <table class="table">
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>Url Api</th>
+          <th>ID Imagen</th>
+          <th>Editar</th>
+          <th>Borrar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let img of imgExternas">
+          <td>{{img.id}}</td>
+          <td>{{img.urlApi}}</td>
+          <td>{{img.idImg}}</td>
+          <td><button (click)="editar('imgExt', img.id)">Editar</button></td>
+          <td><button (click)="borrar('imgExt', img.id)">Borrar</button></td>
+        </tr>
+      </tbody>
+      </table>
+    </div>
+    </div>
+    <div class="diseño">
+      <h2>Grupos</h2>
+      <div class="contenedor">
+      <table class="table">
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nombre</th>
+          <th>Descripción</th>
+          <th>Id Jefe</th>
+          <th>Editar</th>
+          <th>Borrar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let gr of grupos">
+          <td>{{gr.id}}</td>
+          <td>{{gr.nombre}}</td>
+          <td>{{gr.descripcion}}</td>
+          <td>{{gr.id_creador}}</td>
+          <td><button (click)="editar('grupos', gr.id)">Editar</button></td>
+          <td><button (click)="borrar('grupos', gr.id)">Borrar</button></td>
+        </tr>
+      </tbody>
+      </table>
+    </div>
+    </div>
+    <div class="diseño">
+      <h2>Integrantes de los grupos</h2>
+      <div class="contenedor">
+      <table class="table">
+        <thead>
+        <tr>
+          <th>ID Grupos</th>
+          <th>ID Usuario</th>
+          <th>Borrar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let gr of intGrupos">
+          <td>{{gr.id_grupo}}</td>
+          <td>{{gr.id_us}}</td>
+          <td><button (click)="borrar('intGrupos', gr.id_grupo)">Borrar</button></td>
+        </tr>
+      </tbody>
+      </table>
+    </div>
+    </div>
+    <div class="diseño">
+      <h2>Imagenes de los Grupos</h2>
+      <div class="contenedor">
+      <table class="table">
+        <thead>
+        <tr>
+          <th>ID Grupos</th>
+          <th>ID Imagen</th>
+          <th>Tipo Imagen</th>
+          <th>Editar</th>
+          <th>Borrar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let gr of imgGrupos">
+          <td>{{gr.id_grupo}}</td>
+          <td>{{gr.id_img}}</td>
+          <td>{{gr.tipoImagen}}</td>
+          <td><button (click)="editar('imgGrupos', gr.id_grupo, gr.id_img)">Editar</button></td>
+          <td><button (click)="borrar('imgGrupos', gr.id_grupo, gr.id_img)">Borrar</button></td>
+        </tr>
+      </tbody>
+      </table>
+    </div>
+    </div>
+    <div class="diseño">
+      <h2>Comentarios de los Grupos</h2>
+      <div class="contenedor">
+      <table class="table">
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>Comentario</th>
+          <th>ID Usuario</th>
+          <th>ID Grupo</th>
+          <th>Editar</th>
+          <th>Borrar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let gr of comentGrupos">
+          <td>{{gr.id}}</td>
+          <td>{{gr.comentario}}</td>
+          <td>{{gr.id_us}}</td>
+          <td>{{gr.id_grupo}}</td>
+          <td><button (click)="editar('comentGrupos', gr.id)">Editar</button></td>
+          <td><button (click)="borrar('comentGrupos', gr.id)">Borrar</button></td>
+        </tr>
+      </tbody>
+      </table>
+    </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,128 @@
+*{
+    font-family: serif;
+}
+
+.organizar{
+    padding: 80px;
+} 
+
+.fondo{
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../../assets/camaras.jpg');
+    background-position: center;
+    background-attachment: cover;
+}
+
+form { 
+    width: 80%;
+    border-width: 1px;
+    border-color: black;
+    border-style: ridge;
+    padding: 80px;
+    color: white;
+    font-size: 25px;
+    height: 500px;
+    margin-left: 8%;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../../assets/escritor.jpg');
+    background-position: center;
+}
+
+.colorAviso{
+    color: aqua
+}
+
+a{
+    text-decoration: none;
+    color: white;
+
+}
+
+.btnIng{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    margin-left: 20%;
+}
+
+button{
+    margin: 20px;
+    background-image: url("../../assets/inicio.jpg");
+    width: 150px;
+    text-align: center;
+}
+
+a{
+    margin: 20px;
+} 
+
+@media(max-width:750px){
+
+    .organizar{
+        padding: 30px;
+    } 
+
+    a{
+        width: 200px;
+        margin-top: 20px;
+    }
+
+    form { 
+        width: 90%;
+        padding:20px;
+        height: 500px;
+        margin-left: 5%;
+      
+    }
+    .btnIng{
+        margin-left: 30px;
+    }
+
+    .moverbtn{
+        margin-left: 20px;
+    }
+}
+
+@media(max-width:500px){
+
+    .btnIng{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        margin-left: 40px;
+    }
+    .organizar{
+        padding: 0px;
+        padding-top: 40px;
+    } 
+
+    a{
+        margin: 0px;
+    }
+
+    .moverbtn{
+        margin-left: 20px;
+    }
+    
+
+    form { 
+        width: 90%;
+        padding:20px;
+        height: 500px;
+        margin-left: 5%;
+      
+    }
+}
+
+@media(min-height:900px){
+    
+    .fondo{
+        height: 950px;
+    }
+}
+
+@media(max-height:850px){
+    
+    .fondo{
+        height: 840px;
+    }
+    
+}

@@ -1,0 +1,63 @@
+<div id="pagUno">   
+    <div id="carga" *ngIf="!estanLoc&&!estanExt">
+      <div class="simbolo"></div>
+      <p>Cargando...</p>
+    </div>
+    <div class="carruselArriba" >
+      <!--La imagenes son enlaces hacia el componente foto, segun si el usuario esta ingresado o no se envian ciertos datos por la url-->
+      <a class="FotSep"  [routerLink]="usua?.id ? ['/foto', fot?.id, usua?.id, 'local'] : ['/foto', fot?.id, 'local']" *ngFor="let fot of fotosCambio">
+        <div class="fotot" *ngIf="estanLoc" >
+          <img *ngIf="fot.imagen" (mouseenter)="grande(fot.id)" (mouseleave)="pequeno(fot.id)" [style.width.px]="tamimg[fot.id] || 200" [style.transition]="'0.3s ease-in-out'" [src]="'data:image/jpeg;base64,' + fot.imagen" alt="imgLocal" />
+          <div class="fondtxt">
+            <h3 class="colortxt">{{fot.titulo}}</h3>
+          </div>
+        </div>
+      </a> 
+      <a class="FotSep" [routerLink]="usua?.id ? ['/foto', fot?.id, usua?.id, 'externa'] : ['/foto', fot?.id, 'externa']" *ngFor="let fot of fotosExternas">
+        <div class="fotot" *ngIf="estanExt" >
+          <img *ngIf="fot" (mouseenter)="grande(fot.id)" (mouseleave)="pequeno(fot.id)" [style.width.px]="tamimg[fot.id] || 200" [style.transition]="'0.3s ease-in-out'" [src]="fot.src.original" alt="img" />
+          <div class="fondtxt">
+            <h3 class="colortxt">{{fot.id}}</h3>
+          </div>
+        </div>
+      </a>
+    </div>
+  
+    <div class="formEstilo">
+      <form [formGroup]="formulario" (ngSubmit)="Buscar()">
+        <div class="mb-3">
+          <div class="fondtxt">
+            <label for="nomBusq" class="form-label colortxt2">Buscar nombre de la imagen</label>
+          </div>
+          <input
+            type="text"
+            class="form-control"
+            id="nomBusq"
+            formControlName="nomBusq"
+          />
+        </div>
+        <div class="btnBusq">
+          <button type="submit" class="btn btn-dark">Buscar</button>
+          <button type="submit" (click)="limpiar()" class="btn btn-dark">Limpiar</button>
+        </div>
+        <div class="mb-3">
+          <div class="fondtxt">
+            <label for="catBusq" class="form-label colortxt2">Categoría</label>
+          </div>
+          <select class="form-select" id="catBusq" formControlName="catBusq" (change)="busqSelect('categorias')">
+            <option *ngFor="let cat of Categorias" [value]="cat.nombre">{{cat.nombre}}</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <div class="fondtxt">
+            <label for="autBusq" class="form-label colortxt2">Autores</label>
+          </div>
+          <select class="form-select" id="autBusq" formControlName="autorBusq" (change)="busqSelect('autores')">
+            <option *ngFor="let aut of Autores" [value]="aut.id">{{aut.nombre}}</option>
+          </select>
+        </div>
+        
+      </form>
+    </div>
+  </div>
+  
